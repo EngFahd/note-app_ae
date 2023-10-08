@@ -26,9 +26,11 @@ class AddNoteButton extends StatelessWidget {
             }
           },
           builder: (context, state) {
-            return ModalProgressHUD(
-              inAsyncCall: state is NoteCubitLoading ? true : false,
-              child: SingleChildScrollView(child: AddNoteForm()),
+            return AbsorbPointer(
+              absorbing: state is NoteCubitLoading ? true : false,
+              child: SingleChildScrollView(
+                child: AddNoteForm(),
+              ),
             );
           },
         ),
