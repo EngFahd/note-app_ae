@@ -14,6 +14,7 @@ class HomeNote extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
+            isScrollControlled: true,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
             ),
@@ -31,7 +32,7 @@ class HomeNote extends StatelessWidget {
         backgroundColor: Colors.transparent,
         title: const Padding(
           padding: EdgeInsets.all(5),
-          child: AppBarWidgite(Titel: 'Notes',icon:  Icons.search),
+          child: AppBarWidgite(Titel: 'Notes', icon: Icons.search),
         ),
       ),
       // body: ,
@@ -53,4 +54,3 @@ class HomeNote extends StatelessWidget {
     );
   }
 }
-

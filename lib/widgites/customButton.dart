@@ -4,7 +4,7 @@ import 'package:note_app/constant.dart';
 import 'package:note_app/cubite/cubit/note_cubit_cubit.dart';
 
 class customButton extends StatelessWidget {
-  const customButton({super.key, this.ontap, this.isLoading = true});
+  const customButton({super.key, this.ontap, this.isLoading = false});
   final void Function()? ontap;
   final bool isLoading;
   @override

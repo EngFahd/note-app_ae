@@ -25,6 +25,6 @@ class editeNoteBody extends StatelessWidget {
             customeTextFiled(hint: 'titel'),
             customeTextFiled(hint: 'content', maxlines: 5),
           ],
-        ));
+        ),);
   }
 }
