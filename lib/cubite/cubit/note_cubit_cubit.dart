@@ -15,7 +15,7 @@ class NoteCubitCubit extends Cubit<NoteCubitState> {
       box.add(note);
       emit(NoteCubitSuccess());
     } catch (e) {
-      NoteCubitFailier( errorMassage: e.toString());
+      NoteCubitFailier( e.toString());
     }
   }
 }

@@ -12,5 +12,5 @@ final class NoteCubitLoading extends NoteCubitState {}
 final class NoteCubitFailier extends NoteCubitState {
   final String errorMassage;
 
-  NoteCubitFailier({required this.errorMassage});
+  NoteCubitFailier(this.errorMassage);
 }
