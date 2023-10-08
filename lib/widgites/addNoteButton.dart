@@ -12,28 +12,27 @@ class AddNoteButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      // clipBehavior: Clip.none,
-      child: BlocConsumer<NoteCubitCubit, NoteCubitState>(
-        listener: (context, state) {
-          if (state is NoteCubitFailier) {
-            print('titrl ${state.errorMassage}');
-          } else if (state is NoteCubitSuccess) {
-            Navigator.pop(context);
-          }
-        },
-        builder: (context, state) {
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SingleChildScrollView(
-              child: ModalProgressHUD(
-                  inAsyncCall: state is NoteCubitLoading ? true : false,
-                  child: AddNoteForm()),
-            ),
-          );
-        },
+    return BlocProvider(
+      create: (context) => NoteCubitCubit(),
+      child: Padding(
+        // clipBehavior: Clip.none,
+        padding: const EdgeInsets.all(8),
+        child: BlocConsumer<NoteCubitCubit, NoteCubitState>(
+          listener: (context, state) {
+            if (state is NoteCubitFailier) {
+              print('titrl ${state.errorMassage}');
+            } else if (state is NoteCubitSuccess) {
+              Navigator.pop(context);
+            }
+          },
+          builder: (context, state) {
+            return ModalProgressHUD(
+              inAsyncCall: state is NoteCubitLoading ? true : false,
+              child: SingleChildScrollView(child: AddNoteForm()),
+            );
+          },
+        ),
       ),
     );
   }
 }
-
