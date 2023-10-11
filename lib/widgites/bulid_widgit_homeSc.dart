@@ -30,7 +30,9 @@ class bulid_widgit_homeSc extends StatelessWidget {
                   physics: const BouncingScrollPhysics(),
                   itemCount: listnotes.length,
                   itemBuilder: (context, index) {
-                    return const NoteItem();
+                    return NoteItem(
+                      noteModel: listnotes[index],
+                    );
                   },
                 ),
               ),

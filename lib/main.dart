@@ -7,13 +7,13 @@ import 'package:note_app/constant.dart';
 import 'package:note_app/cubite/cubit/cubit/read_note_cubit.dart';
 import 'package:note_app/cubite/cubit/note_cubit_cubit.dart';
 import 'package:note_app/models/model_note.dart';
-
 void main() async {
   await Hive.initFlutter();
   // the best way to know state than printing
   Bloc.observer = simpleopserver();
   // tell hive the data saved is note model;
   Hive.registerAdapter(NoteModelAdapter());
+  
   // remmber the type of data saved
   await Hive.openBox<NoteModel>(kPrimaryWord);
   runApp(MyApp());

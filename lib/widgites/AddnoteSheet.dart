@@ -1,5 +1,8 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:note_app/cubite/cubit/note_cubit_cubit.dart';
 import 'package:note_app/models/model_note.dart';
 import 'package:note_app/widgites/coustemTextFiled.dart';
@@ -56,10 +59,12 @@ class _AddNoteFormState extends State<AddNoteForm> {
                   ontap: () {
                     if (glopalKey.currentState!.validate()) {
                       glopalKey.currentState!.save();
+                      // formateDate(buttern)
+                      var formateDate = DateFormat('dd-MM-yyyy').format(DateTime.now());
                       NoteModel noteModel = NoteModel(
                           titel: titel!,
                           subTitel: subTitel!,
-                          date: DateTime.now().toString(),
+                          date: formateDate,
                           color: Colors.blue.value);
                       BlocProvider.of<NoteCubitCubit>(context)
                           .addNote(noteModel);
