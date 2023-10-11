@@ -9,13 +9,16 @@ part 'read_note_state.dart';
 class ReadNoteCubit extends Cubit<ReadNoteState> {
   ReadNoteCubit() : super(ReadNoteInitial());
 
+  List<NoteModel>? listNote;
   fatchNote() {
     try {
       var box = Hive.box<NoteModel>(kPrimaryWord);
-      List<NoteModel> listNote = box.values.toList();
-      emit(ReadNoteSuccess(listNote));
+
+       listNote = box.values.toList();
+      print(listNote);
+      emit(ReadNoteSuccess(listNote!));
     } catch (e) {
-      emit(ReadNoteFailier(e.toString()));
+      emit(ReadNotefalier(e.toString()));
     }
   }
 }

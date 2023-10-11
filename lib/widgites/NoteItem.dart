@@ -23,20 +23,20 @@ class NoteItem extends StatelessWidget {
         },
         child: Container(
           // height: 150,
-          padding: EdgeInsets.only(
+          padding:const EdgeInsets.only(
             top: 24,
             left: 24,
             bottom: 24,
           ),
           decoration: BoxDecoration(
-            color: Color(0xffFFCD7B),
+            color:const Color(0xffFFCD7B),
             borderRadius: BorderRadius.circular(16),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               ListTile(
-                title: Text(
+                title:const Text(
                   'Flutter tips',
                   style: TextStyle(color: Colors.black, fontSize: 24),
                 ),
@@ -52,14 +52,14 @@ class NoteItem extends StatelessWidget {
                 ),
                 trailing: IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon:const Icon(
                       Icons.delete,
                       color: Colors.black,
                       size: 35,
                     )),
               ),
               Padding(
-                padding: EdgeInsets.only(right: 24),
+                padding:const EdgeInsets.only(right: 24),
                 child: Text(
                   'data',
                   style: TextStyle(

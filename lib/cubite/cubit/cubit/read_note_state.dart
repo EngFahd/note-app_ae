@@ -7,13 +7,14 @@ final class ReadNoteInitial extends ReadNoteState {}
 
 final class ReadNoteLoading extends ReadNoteState {}
 
-final class ReadNoteSuccess extends ReadNoteState {
-   final List<NoteModel> note;
+final class ReadNotefalier extends ReadNoteState {
+  final String errorMessage;
 
-  ReadNoteSuccess(this.note);
+  ReadNotefalier(this.errorMessage);
 }
 
-final class ReadNoteFailier extends ReadNoteState {
-  final String message;
-  ReadNoteFailier(this.message);
+final class ReadNoteSuccess extends ReadNoteState {
+  final List<NoteModel> note;
+
+  ReadNoteSuccess(this.note);
 }

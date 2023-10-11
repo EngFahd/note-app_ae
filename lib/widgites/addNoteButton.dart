@@ -15,13 +15,19 @@ class AddNoteButton extends StatelessWidget {
     return BlocProvider(
       create: (context) => NoteCubitCubit(),
       child: Padding(
-        // clipBehavior: Clip.none,
         padding: const EdgeInsets.all(8),
+        // consumer => rebuild ui and add some code
+        // lisner => no change bt check some code
+        // builder => rebuild only
         child: BlocConsumer<NoteCubitCubit, NoteCubitState>(
+
           listener: (context, state) {
+
             if (state is NoteCubitFailier) {
-              print('titrl ${state.errorMassage}');
-            } else if (state is NoteCubitSuccess) {
+              print('titel ${state.errorMassage}');
+
+            }
+           if (state is NoteCubitSuccess) {
               Navigator.pop(context);
             }
           },

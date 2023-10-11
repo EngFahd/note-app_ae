@@ -1,16 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:note_app/constant.dart';
+import 'package:note_app/cubite/cubit/cubit/read_note_cubit.dart';
+import 'package:note_app/models/model_note.dart';
 import 'package:note_app/widgites/CustomButtonIcon.dart';
 import 'package:note_app/widgites/NoteItem.dart';
 import 'package:note_app/widgites/RowAppBar.dart';
 import 'package:note_app/widgites/addNoteButton.dart';
+import 'package:note_app/widgites/bulid_widgit_homeSc.dart';
 
-class HomeNote extends StatelessWidget {
+class HomeNote extends StatefulWidget {
   const HomeNote({super.key});
 
   @override
+  State<HomeNote> createState() => _HomeNoteState();
+}
+
+class _HomeNoteState extends State<HomeNote> {
+  // void initState() {
+  @override
+  void initState() {
+    BlocProvider.of<ReadNoteCubit>(context).fatchNote();
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
+      //  =====.>>>>.>>>>.>>>>.>>>>.>>>>.
+      resizeToAvoidBottomInset: false,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
@@ -24,7 +41,7 @@ class HomeNote extends StatelessWidget {
             },
           );
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
       appBar: AppBar(
         // backgroundColor: kPrimColor,
@@ -37,20 +54,7 @@ class HomeNote extends StatelessWidget {
       ),
       // body: ,
 
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-        child: Column(
-          children: [
-            Expanded(
-              child: ListView.builder(
-                itemBuilder: (context, index) {
-                  return NoteItem();
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
+      body: bulid_widgit_homeSc(),
     );
   }
 }

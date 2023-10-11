@@ -18,12 +18,11 @@ class customButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(8), color: kPrimColor),
         child: BlocBuilder<NoteCubitCubit, NoteCubitState>(
           builder: (context, state) {
-            isLoading:
-            state is NoteCubitLoading ? true : false;
+            // state is NoteCubitLoading ? true : false;
             return Center(
               child: isLoading
                   ? const CircularProgressIndicator(
-                      color: Colors.white,
+                      color: Colors.black,
                     )
                   : const Text(
                       'Add',
