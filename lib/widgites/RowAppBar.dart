@@ -3,10 +3,11 @@ import 'package:note_app/widgites/CustomButtonIcon.dart';
 
 class AppBarWidgite extends StatelessWidget {
   const AppBarWidgite({
-    super.key, required this.Titel, required this.icon,
+    super.key, required this.Titel, required this.icon, this.onpressed,
   });
   final String Titel;
   final IconData icon;
+  final void Function()? onpressed;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -18,7 +19,8 @@ class AppBarWidgite extends StatelessWidget {
         Spacer(
           flex: 1,
         ),
-        CustomButtonIcon(icon: icon,)
+        CustomButtonIcon(icon: icon,
+        onpressed:onpressed ,)
       ],
     );
   }

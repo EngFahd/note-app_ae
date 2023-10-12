@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:note_app/constant.dart';
+import 'package:note_app/cubite/cubit/cubit/read_note_cubit.dart';
 import 'package:note_app/cubite/cubit/note_cubit_cubit.dart';
 import 'package:note_app/widgites/AddnoteSheet.dart';
 import 'package:note_app/widgites/coustemTextFiled.dart';
@@ -20,14 +21,12 @@ class AddNoteButton extends StatelessWidget {
         // lisner => no change bt check some code
         // builder => rebuild only
         child: BlocConsumer<NoteCubitCubit, NoteCubitState>(
-
           listener: (context, state) {
-
             if (state is NoteCubitFailier) {
               print('titel ${state.errorMassage}');
-
             }
-           if (state is NoteCubitSuccess) {
+            if (state is NoteCubitSuccess) {
+              BlocProvider.of<ReadNoteCubit>(context).fatchNote();
               Navigator.pop(context);
             }
           },

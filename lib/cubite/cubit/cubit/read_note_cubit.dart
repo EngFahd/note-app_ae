@@ -11,14 +11,12 @@ class ReadNoteCubit extends Cubit<ReadNoteState> {
 
   List<NoteModel>? listNote;
   fatchNote() {
-    try {
+   
       var box = Hive.box<NoteModel>(kPrimaryWord);
 
        listNote = box.values.toList();
-      print(listNote);
+      
       emit(ReadNoteSuccess(listNote!));
-    } catch (e) {
-      emit(ReadNotefalier(e.toString()));
-    }
+   
   }
 }

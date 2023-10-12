@@ -28,6 +28,9 @@ class _HomeNoteState extends State<HomeNote> {
     return Scaffold(
       //  =====.>>>>.>>>>.>>>>.>>>>.>>>>.
       resizeToAvoidBottomInset: false,
+
+      // floting botton =====>>>.
+      
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(

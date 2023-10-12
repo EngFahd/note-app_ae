@@ -11,17 +11,14 @@ class NoteCubitCubit extends Cubit<NoteCubitState> {
 
   void addNote(NoteModel note) async {
     emit(NoteCubitLoading());
-    try {
+    
       // open hive box
       var box = Hive.box<NoteModel>(kPrimaryWord);
       // add note in hive box
-      print(box.values);
       // ===============
       await box.add(note);
       // ===============
       emit(NoteCubitSuccess());
-    } catch (e) {
-      emit(NoteCubitFailier(e.toString()));
-    }
+    
   }
 }

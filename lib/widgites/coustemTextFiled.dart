@@ -6,9 +6,9 @@ class customeTextFiled extends StatelessWidget {
     super.key,
     this.maxlines = 1,
     required this.hint,
-    this.onsaved,
+    this.onsaved, this.onchanged,
   });
-
+  final void Function(String)? onchanged;
   final int maxlines;
   final String hint;
   final Function(String?)? onsaved;
@@ -17,6 +17,7 @@ class customeTextFiled extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
+        onChanged: onchanged,
         onSaved: onsaved,
         validator: (valu) {
           if (valu?.isEmpty ?? true) {

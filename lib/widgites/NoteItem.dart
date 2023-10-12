@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:note_app/Pages/editeNoteBody.dart';
+import 'package:note_app/cubite/cubit/cubit/read_note_cubit.dart';
 import 'package:note_app/models/model_note.dart';
 
 class NoteItem extends StatelessWidget {
@@ -18,7 +20,9 @@ class NoteItem extends StatelessWidget {
             context,
             MaterialPageRoute(
               builder: (context) {
-                return editeNoteBody();
+                return editeNoteBody(
+                  noteModel: noteModel,
+                );
               },
             ),
           );
@@ -45,10 +49,11 @@ class NoteItem extends StatelessWidget {
                 subtitle: Padding(
                   padding: const EdgeInsets.only(top: 16),
                   child: Text(
-                    'Builde Flutter With => " Fahd Mahmoud "${noteModel.subTitel}',
+                    "${noteModel.subTitel}",
                     style: TextStyle(
-                      color: Colors.black.withOpacity(0.4),
-                      // fontWeight: FontWeight.bold,
+                      color: Colors.black.withOpacity(0.6),
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
@@ -56,6 +61,7 @@ class NoteItem extends StatelessWidget {
                     onPressed: () {
                       // becouse the model extend hive object
                       noteModel.delete();
+                      BlocProvider.of<ReadNoteCubit>(context).fatchNote();
                     },
                     icon: const Icon(
                       Icons.delete,
