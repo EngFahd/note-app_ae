@@ -5,7 +5,6 @@ import 'package:note_app/Pages/home.dart';
 import 'package:note_app/blocOserver.dart';
 import 'package:note_app/constant.dart';
 import 'package:note_app/cubite/cubit/cubit/read_note_cubit.dart';
-import 'package:note_app/cubite/cubit/note_cubit_cubit.dart';
 import 'package:note_app/models/model_note.dart';
 void main() async {
   await Hive.initFlutter();
@@ -36,7 +35,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Poppins',
         ),
         debugShowCheckedModeBanner: false,
-        home: HomeNote(),
+        home:const HomeNote(),
       ),
     );
   }

@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:note_app/constant.dart';
 import 'package:note_app/cubite/cubit/note_cubit_cubit.dart';
 
-class customButton extends StatelessWidget {
-  const customButton({super.key, this.ontap, this.isLoading = false});
+class CustomButton extends StatelessWidget {
+  const CustomButton({super.key, this.ontap, this.isLoading = false});
   final void Function()? ontap;
   final bool isLoading;
   @override

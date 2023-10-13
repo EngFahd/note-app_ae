@@ -3,9 +3,12 @@ import 'package:note_app/widgites/CustomButtonIcon.dart';
 
 class AppBarWidgite extends StatelessWidget {
   const AppBarWidgite({
-    super.key, required this.Titel, required this.icon, this.onpressed,
+    super.key,
+    required this.titel,
+    required this.icon,
+    this.onpressed,
   });
-  final String Titel;
+  final String titel;
   final IconData icon;
   final void Function()? onpressed;
   @override
@@ -13,14 +16,16 @@ class AppBarWidgite extends StatelessWidget {
     return Row(
       children: [
         Text(
-          Titel,
-          style: TextStyle(fontSize: 30),
+          titel,
+          style: const TextStyle(fontSize: 30),
         ),
-        Spacer(
+        const Spacer(
           flex: 1,
         ),
-        CustomButtonIcon(icon: icon,
-        onpressed:onpressed ,)
+        CustomButtonIcon(
+          icon: icon,
+          onpressed: onpressed,
+        ),
       ],
     );
   }

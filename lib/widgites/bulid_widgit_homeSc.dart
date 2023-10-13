@@ -13,12 +13,14 @@ class bulid_widgit_homeSc extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ReadNoteCubit, ReadNoteState>(
       builder: (context, state) {
-        if (state is ReadNoteSuccess) {
-          print(state.note.length);
-        }
-        if (state is ReadNotefalier) {
-          print('failler');
-        }
+        // for checks ======>>
+        
+        // if (state is ReadNoteSuccess) {
+        //   print(state.note.length);
+        // }
+        // if (state is ReadNotefalier) {
+        //   print('failler');
+        // }
         List<NoteModel> listnotes =
             BlocProvider.of<ReadNoteCubit>(context).listNote ?? [];
         return Padding(

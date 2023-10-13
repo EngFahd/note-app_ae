@@ -30,7 +30,7 @@ class _HomeNoteState extends State<HomeNote> {
       resizeToAvoidBottomInset: false,
 
       // floting botton =====>>>.
-      
+
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
@@ -40,7 +40,7 @@ class _HomeNoteState extends State<HomeNote> {
             ),
             context: context,
             builder: (context) {
-              return AddNoteButton();
+              return const AddNoteButton();
             },
           );
         },
@@ -52,12 +52,12 @@ class _HomeNoteState extends State<HomeNote> {
         backgroundColor: Colors.transparent,
         title: const Padding(
           padding: EdgeInsets.all(5),
-          child: AppBarWidgite(Titel: 'Notes', icon: Icons.search),
+          child: AppBarWidgite(titel: 'Notes', icon: Icons.search),
         ),
       ),
       // body: ,
 
-      body: bulid_widgit_homeSc(),
+      body:const bulid_widgit_homeSc(),
     );
   }
 }

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:note_app/constant.dart';
 
-class customeTextFiled extends StatelessWidget {
-  const customeTextFiled({
+class CustomeTextFiled extends StatelessWidget {
+  const CustomeTextFiled({
     super.key,
     this.maxlines = 1,
     required this.hint,
-    this.onsaved, this.onchanged,
+    this.onsaved,
+    this.onchanged,
   });
   final void Function(String)? onchanged;
   final int maxlines;

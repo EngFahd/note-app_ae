@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:note_app/constant.dart';
 import 'package:note_app/cubite/cubit/cubit/read_note_cubit.dart';
 import 'package:note_app/cubite/cubit/note_cubit_cubit.dart';
 import 'package:note_app/widgites/AddnoteSheet.dart';
-import 'package:note_app/widgites/coustemTextFiled.dart';
-import 'package:note_app/widgites/customButton.dart';
 
 class AddNoteButton extends StatelessWidget {
-  AddNoteButton({super.key});
+ const AddNoteButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +34,7 @@ class AddNoteButton extends StatelessWidget {
                     left: 16,
                     right: 16,
                     bottom: MediaQuery.of(context).viewInsets.bottom),
-                child: SingleChildScrollView(
+                child:const SingleChildScrollView(
                   child: AddNoteForm(),
                 ),
               ),
